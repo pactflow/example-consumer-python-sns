@@ -1,0 +1,5 @@
+.venv
+.aws-sam
+.idea
+.python-version
+__pycache__

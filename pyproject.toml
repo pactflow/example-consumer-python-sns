@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "example-consumer-python-sns"
+version = "0.0.0"
+description = "Example Python AWS SNS Consumer"
+license = "Proprietary"
+authors = ["Mike Geeves <mike.geeves@bearly-compiling.com>"]
+readme = 'README.md'
+repository = "https://github.com/pactflow/example-consumer-python-sns"
+homepage = "https://github.com/pactflow/example-consumer-python-sns"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.dependencies]
+python = "^3.8"
+
+[tool.poetry.dev-dependencies]
+pytest = "7.1.2"
+pytest-asyncio = "^0.18.3"
+pytest-mock = "^3.7.0"
+pact-python = "^1.5.2"

@@ -1,0 +1,10 @@
+version = 0.1
+[default]
+[default.deploy]
+[default.deploy.parameters]
+stack_name = "pactflow-example-consumer-python-sns"
+s3_bucket = "aws-sam-cli-managed-default-samclisourcebucket-bh8zhrrkdq4s"
+s3_prefix = "pactflow-example-consumer-python-sns"
+region = "ap-southeast-2"
+confirm_changeset = true
+capabilities = "CAPABILITY_IAM"
