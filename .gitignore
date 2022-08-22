@@ -1,5 +1,8 @@
 .venv
 .aws-sam
 .idea
+.vscode
 .python-version
 __pycache__
+pacts
+.pytest_cache

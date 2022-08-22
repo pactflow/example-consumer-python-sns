@@ -30,7 +30,7 @@ fake_ci: .env
 
 
 publish_pacts: .env
-	@"${PACT_CLI}" publish ${PWD}/pacts --consumer-app-version ${GIT_COMMIT} --tag ${GIT_BRANCH}
+	@"${PACT_CLI}" publish ${PWD}/pacts --consumer-app-version ${GIT_COMMIT} --tag ${GIT_BRANCH} --branch ${GIT_BRANCH} 
 
 ## =====================
 ## Build/test tasks
@@ -142,10 +142,10 @@ venv:
 	@echo "\n$(green)Use it! (populate .python-version)$(sgr0)"
 	pyenv local ${PROJECT}
 
-deploy:
+deploy_sam:
 	scripts/deploy.sh
 
-publish:
+publish_sam:
 	scripts/publish.sh
 
 logs:

@@ -25,32 +25,34 @@ You're probably familiar with layered architectures such as Ports and Adaptors (
 
 This code base is setup with this modularity in mind:
 
-* [Lambda Handler](src/_lambda/product.py)
-* [Event Service](src/product/product_service.py)
-* Business Logic
-    * [Product](src/product/product.py)
-    * [Repository](src/product/product_repository.py)
+- [Lambda Handler](src/_lambda/product.py)
+- [Event Service](src/product/product_service.py)
+- Business Logic
+  - [Product](src/product/product.py)
+  - [Repository](src/product/product_repository.py)
 
 The target of our [consumer pact test](tests/unit/product_service_pact_test.py) is the [Event Service](src/product/product_service.js), which is responsible for consuming a Product update event, and persisting it to a database (the Repository).
 
 See also:
 
-* https://dius.com.au/2017/09/22/contract-testing-serverless-and-asynchronous-applications/
-* https://dius.com.au/2018/10/01/contract-testing-serverless-and-asynchronous-applications---part-2/
+- https://dius.com.au/2017/09/22/contract-testing-serverless-and-asynchronous-applications/
+- https://dius.com.au/2018/10/01/contract-testing-serverless-and-asynchronous-applications---part-2/
 
 ## Usage
+
 ### Testing
 
-* Run the unit tests: `make test`
-* Run a (local) lambda integration test: `make integration`
+- Run the unit tests: `make test`
+- Run a (local) lambda integration test: `make integration`
 
 ### Running
 
-* Deploy the actual app: `make deploy` (see below for more background)
-* Publish a test event: `make publish`
-* View the lambda logs: `make logs`
+- Deploy the actual app: `make deploy_sam` (see below for more background)
+- Publish a test event: `make publish_sam`
+- View the lambda logs: `make logs`
 
 Here is some sample output publishing and viewing the logs:
+
 ```
 ➜  example-consumer-js-sns git:(master) ✗ npm run publish                                                                                                                                                                                                                                                    <aws:pact-dev>
 

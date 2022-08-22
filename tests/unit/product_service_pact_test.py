@@ -6,8 +6,8 @@ from pact import Like, MessageConsumer, Provider, Term
 from src.product.product_service import receive_product_update
 
 CONSUMER_NAME = "pactflow-example-consumer-python-sns"
-PROVIDER_NAME = os.getenv("PACT_PROVIDER", "pactflow-example-provider-python-sns")
-PACT_DIR = os.path.join(os.path.dirname(os.path.realpath(__file__)), "pacts")
+PROVIDER_NAME = os.getenv("PACT_PROVIDER", "pactflow-example-provider-js-sns")
+PACT_DIR = os.path.join(os.path.dirname(os.path.realpath(__file__)),"..","..", "pacts")
 
 @pytest.fixture(scope="session")
 def consumer():
