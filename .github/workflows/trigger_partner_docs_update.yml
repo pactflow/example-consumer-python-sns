@@ -3,25 +3,25 @@ name: Trigger update to partners.pactflow.io
 on:
   push:
     branches:
-      - master
+      - main
     paths:
-      - '**.md'
+      - "**.md"
 
 jobs:
   run:
     runs-on: ubuntu-latest
     steps:
       - name: Trigger partner docs update
-        if: github.repository == 'pactflow/example-consumer-js-sns'
+        if: github.repository == 'pactflow/example-consumer-python-sns'
         uses: peter-evans/repository-dispatch@v1
         with:
           token: ${{ secrets.GHTOKENFORTRIGGERINGPACTDOCSUPDATE }}
           repository: pactflow/partners.pactflow.io
-          event-type: pactflow-example-consumer-js-sns-updated
+          event-type: pactflow-example-consumer-python-sns-updated
       - name: Trigger docs update
-        if: github.repository == 'pactflow/example-consumer-js-sns'
+        if: github.repository == 'pactflow/example-consumer-python-sns'
         uses: peter-evans/repository-dispatch@v1
         with:
           token: ${{ secrets.GHTOKENFORTRIGGERINGPACTDOCSUPDATE }}
           repository: pactflow/docs.pactflow.io
-          event-type: pactflow-example-consumer-js-sns-updated
+          event-type: pactflow-example-consumer-python-sns-updated
