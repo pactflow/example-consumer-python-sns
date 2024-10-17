@@ -37,7 +37,7 @@ async def test_receive_a_product_update(pact, consumer):
         pact
         .expects_to_receive("a product event update")
         .with_content(event)
-        .with_metadata({"Content-Type": "application/json", 'topic': 'products'})
+        .with_metadata({"contentType": "application/json", 'topic': 'products'})
     )
 
     with pact:

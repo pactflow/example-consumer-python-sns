@@ -22,21 +22,21 @@ ci: test publish_pacts can_i_deploy $(DEPLOY_TARGET)
 # Run the ci target from a developer machine with the environment variables
 # set as if it was on Travis CI.
 # Use this for quick feedback when playing around with your workflows.
-fake_ci: .env
+fake_ci:
 	CI=true \
 	GIT_COMMIT=`git rev-parse --short HEAD`+`date +%s` \
 	GIT_BRANCH=`git rev-parse --abbrev-ref HEAD` \
 	make ci
 
 
-publish_pacts: .env
+publish_pacts:
 	@"${PACT_CLI}" publish ${PWD}/pacts --consumer-app-version ${GIT_COMMIT} --tag ${GIT_BRANCH} --branch ${GIT_BRANCH} 
 
 ## =====================
 ## Build/test tasks
 ## =====================
 
-test: .env
+test:
 	python3 -m pytest
 
 ## =====================
@@ -51,18 +51,18 @@ deploy: deploy_app record_deployment
 no_deploy:
 	@echo "Not deploying as not on main branch"
 
-can_i_deploy: .env
+can_i_deploy:
 	@"${PACT_CLI}" broker can-i-deploy \
 	  --pacticipant ${PACTICIPANT} \
 	  --version ${GIT_COMMIT} \
 	  --to-environment production \
-	  --retry-while-unknown 0 \
+	  --retry-while-unknown 5 \
 	  --retry-interval 10
 
 deploy_app:
 	@echo "Deploying to production"
 
-record_deployment: .env
+record_deployment:
 	@"${PACT_CLI}" broker record-deployment --pacticipant ${PACTICIPANT} --version ${GIT_COMMIT} --environment production
 
 ## =====================
@@ -101,16 +101,13 @@ test_github_webhook:
 ## Misc
 ## ======================
 
-.env:
-	touch .env
-
 .PHONY: test
 
 ## ======================
 ## Python additions
 ## ======================
 PROJECT := example-consumer-python-sns
-PYTHON_MAJOR_VERSION := 3.8
+PYTHON_MAJOR_VERSION := 3.11
 
 sgr0 := $(shell tput sgr0)
 red := $(shell tput setaf 1)
