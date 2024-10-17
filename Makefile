@@ -117,7 +117,7 @@ deps:
 	poetry install
 
 integration:
-	sam local invoke ProductEventHandler --event  ./__tests__/events/update.json
+	sam local invoke ProductEventHandler --event  ./tests/resources/events/update.json
 
 venv:
 	@if [ -d "./.venv" ]; then echo "$(red).venv already exists, not continuing!$(sgr0)"; exit 1; fi

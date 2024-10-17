@@ -20,7 +20,7 @@ async def test_lambda_consumes_a_valid_sns_event(mocker):
         payload = json.load(f)
 
     # (2) Act: call the actual lambda with a valid SNS message
-    result = await product.handler(payload)
+    result = await product.handler(payload, {})
 
     # (3) Assert: should return
     assert result == num_products + 1

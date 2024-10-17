@@ -27,7 +27,7 @@ Resources:
     Properties:
       Description: A Lambda function that receives a Product update event from the ProductEvent topic
       Runtime: python3.11
-      Handler: src.lambda.product.handler
+      Handler: src._lambda.product.lambda_handler
       # This property associates this Lambda function with the SNS topic defined above, so that whenever the topic
       # receives a message, the Lambda function is invoked
       Events:
