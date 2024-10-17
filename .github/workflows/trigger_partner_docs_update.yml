@@ -12,16 +12,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Trigger partner docs update
-        if: github.repository == 'pactflow/example-consumer-python-sns'
+        if: github.repository == 'pactflow/example-consumer-python-kafka'
         uses: peter-evans/repository-dispatch@v1
         with:
           token: ${{ secrets.GHTOKENFORTRIGGERINGPACTDOCSUPDATE }}
           repository: pactflow/partners.pactflow.io
-          event-type: pactflow-example-consumer-python-sns-updated
+          event-type: pactflow-example-consumer-python-kafka-updated
       - name: Trigger docs update
-        if: github.repository == 'pactflow/example-consumer-python-sns'
+        if: github.repository == 'pactflow/example-consumer-python-kafka'
         uses: peter-evans/repository-dispatch@v1
         with:
           token: ${{ secrets.GHTOKENFORTRIGGERINGPACTDOCSUPDATE }}
           repository: pactflow/docs.pactflow.io
-          event-type: pactflow-example-consumer-python-sns-updated
+          event-type: pactflow-example-consumer-python-kafka-updated

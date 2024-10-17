@@ -1,17 +1,16 @@
-# Example Python AWS SNS Consumer
+# Example Python AWS Kafka Consumer
 
-[![Build Status](https://github.com/pactflow/example-consumer-python-sns/actions/workflows/build.yml/badge.svg)](https://github.com/pactflow/example-consumer-python-sns/actions)
+[![Build Status](https://github.com/pactflow/example-consumer-python-kafka/actions/workflows/build.yml/badge.svg)](https://github.com/pactflow/example-consumer-python-kafka/actions)
 
-[![Can I deploy Status](https://test.pactflow.io/pacticipants/pactflow-example-consumer-python-sns/branches/main/latest-version/can-i-deploy/to-environment/production/badge.svg)](https://test.pactflow.io/pacticipants/pactflow-example-consumer-python-sns/branches/main/latest-version/can-i-deploy/to-environment/production/badge)
+[![Can I deploy Status](https://test.pactflow.io/pacticipants/pactflow-example-consumer-python-kafka/branches/main/latest-version/can-i-deploy/to-environment/production/badge.svg)](https://test.pactflow.io/pacticipants/pactflow-example-consumer-python-kafka/branches/main/latest-version/can-i-deploy/to-environment/production/badge)
 
-[![Pact Status](https://test.pactflow.io/pacts/provider/pactflow-example-provider-python-sns/consumer/pactflow-example-consumer-python-sns/latest/badge.svg?label=consumer)](https://test.pactflow.io/pacts/provider/pactflow-example-provider-python-sns/consumer/pactflow-example-consumer-python-sns/latest) (latest pact)
+[![Pact Status](https://test.pactflow.io/pacts/provider/pactflow-example-provider-python-kafka/consumer/pactflow-example-consumer-python-kafka/latest/badge.svg?label=consumer)](https://test.pactflow.io/pacts/provider/pactflow-example-provider-python-kafka/consumer/pactflow-example-consumer-python-kafka/latest) (latest pact)
 
-[![Pact Status](https://test.pactflow.io/matrix/provider/pactflow-example-provider-python-sns/latest/main/consumer/pactflow-example-consumer-python-sns/latest/main/badge.svg?label=consumer)](https://test.pactflow.io/pacts/provider/pactflow-example-provider-python-sns/consumer/pactflow-example-consumer-python-sns/latest/prod) (prod/prod pact)
+[![Pact Status](https://test.pactflow.io/matrix/provider/pactflow-example-provider-python-kafka/latest/main/consumer/pactflow-example-consumer-python-kafka/latest/main/badge.svg?label=consumer)](https://test.pactflow.io/pacts/provider/pactflow-example-provider-python-kafka/consumer/pactflow-example-consumer-python-kafka/latest/prod) (prod/prod pact)
 
-This is an example of a Python AWS SNS consumer that uses Pact, [Pactflow](https://pactflow.io) and GitHub Actions to ensure that it is compatible with the expectations its consumers have of it.
+This is an example of a Python Kafka consumer that uses Pact, [Pactflow](https://pactflow.io) and GitHub Actions to ensure that it is compatible with the expectations its consumers have of it.
 
-All examples in the series `example-consumer-<language>-sns` provide the same functionality to be easily comparable across languages.
-As such, please refer to [https://docs.pactflow.io/docs/examples/aws/sns/consumer/](AWS SNS Consumer Examples) to avoid unnecessary duplication of details here.
+All examples in the series `example-consumer-<language>-kafka` provide the same functionality to be easily comparable across languages.
 
 Language specific sections which differ from the canonical example only can be found below.
 
@@ -25,7 +24,7 @@ You're probably familiar with layered architectures such as Ports and Adaptors (
 
 This code base is setup with this modularity in mind:
 
-- [Lambda Handler](src/_lambda/product.py)
+- [Kafka Handler](src/_kafka/product.py)
 - [Event Service](src/product/product_service.py)
 - Business Logic
   - [Product](src/product/product.py)
@@ -43,4 +42,4 @@ See also:
 ### Testing
 
 - Run the unit tests: `make test`
-- Run a (local) lambda integration test: `make integration`
+- Run the kafka consumer: `make run`

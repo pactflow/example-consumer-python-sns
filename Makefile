@@ -1,6 +1,6 @@
 # Default to the read only token - the read/write token will be present on Travis CI.
 # It's set as a secure environment variable in the .travis.yml file
-PACTICIPANT := "pactflow-example-consumer-python-sns"
+PACTICIPANT := "pactflow-example-consumer-python-kafka"
 GITHUB_WEBHOOK_UUID := "c76b601e-d66a-4eb1-88a4-6ebc50c0df8b"
 PACT_CLI="docker run --rm -v ${PWD}:${PWD} -e PACT_BROKER_BASE_URL -e PACT_BROKER_TOKEN pactfoundation/pact-cli:latest"
 
@@ -84,7 +84,7 @@ create_github_token_secret:
 create_or_update_github_webhook:
 	@"${PACT_CLI}" \
 	  broker create-or-update-webhook \
-	  'https://api.github.com/repos/pactflow/example-consumer-python-sns/statuses/$${pactbroker.consumerVersionNumber}' \
+	  'https://api.github.com/repos/pactflow/example-consumer-python-kafka/statuses/$${pactbroker.consumerVersionNumber}' \
 	  --header 'Content-Type: application/json' 'Accept: application/vnd.github.v3+json' 'Authorization: token $${user.githubCommitStatusToken}' \
 	  --request POST \
 	  --data @${PWD}/pactflow/github-commit-status-webhook.json \
@@ -106,7 +106,7 @@ test_github_webhook:
 ## ======================
 ## Python additions
 ## ======================
-PROJECT := example-consumer-python-sns
+PROJECT := example-consumer-python-kafka
 PYTHON_MAJOR_VERSION := 3.11
 
 sgr0 := $(shell tput sgr0)
@@ -115,9 +115,6 @@ green := $(shell tput setaf 2)
 
 deps:
 	poetry install
-
-integration:
-	sam local invoke ProductEventHandler --event  ./tests/resources/events/update.json
 
 venv:
 	@if [ -d "./.venv" ]; then echo "$(red).venv already exists, not continuing!$(sgr0)"; exit 1; fi
@@ -139,11 +136,5 @@ venv:
 	@echo "\n$(green)Use it! (populate .python-version)$(sgr0)"
 	pyenv local ${PROJECT}
 
-deploy_sam:
-	scripts/deploy.sh
-
-publish_sam:
-	scripts/publish.sh
-
-logs:
-	sam logs -n ProductEventHandler --stack-name pactflow-example-consumer-python-sns -t
+run:
+	python3 run.py
