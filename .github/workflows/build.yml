@@ -34,11 +34,12 @@ jobs:
         run: make venv
       - name: Install
         run: make deps
-      - name: Activate virtual env
+      - name: Activate virtual env & test
         run: |
           source .venv/bin/activate
-      - name: Test
-        run: make test
+          make test
+      # - name: Test
+      #   run: make test
       - name: Publish pacts
         run: GIT_BRANCH=${GIT_REF:11} make publish_pacts
 
