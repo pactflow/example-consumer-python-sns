@@ -17,7 +17,7 @@ jobs:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
       - uses: actions/setup-python@65d7f2d534ac1bc67fcd62888c5f4f3d2cb2b236 # v4
         with:
-          python-version: "3.11"
+          python-version: "3.13"
       - name: install pyenv
         run: curl https://pyenv.run | bash
       - name: set pyenv on path
