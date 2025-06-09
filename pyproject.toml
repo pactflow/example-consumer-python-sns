@@ -18,5 +18,5 @@ python = "^3.11"
 [tool.poetry.dev-dependencies]
 pytest = "8.3.5"
 pytest-asyncio = "1.0.0"
-pytest-mock = "3.14.0"
+pytest-mock = "3.14.1"
 pact-python = "2.3.1"
