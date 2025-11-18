@@ -13,14 +13,14 @@ jobs:
     steps:
       - name: Trigger partner docs update
         if: github.repository == 'pactflow/example-consumer-python-sns'
-        uses: peter-evans/repository-dispatch@ff45666b9427631e3450c54a1bcbee4d9ff4d7c0 # v3
+        uses: peter-evans/repository-dispatch@28959ce8df70de7be546dd1250a005dd32156697 # v4
         with:
           token: ${{ secrets.GHTOKENFORTRIGGERINGPACTDOCSUPDATE }}
           repository: pactflow/partners.pactflow.io
           event-type: pactflow-example-consumer-python-sns-updated
       - name: Trigger docs update
         if: github.repository == 'pactflow/example-consumer-python-sns'
-        uses: peter-evans/repository-dispatch@ff45666b9427631e3450c54a1bcbee4d9ff4d7c0 # v3
+        uses: peter-evans/repository-dispatch@28959ce8df70de7be546dd1250a005dd32156697 # v4
         with:
           token: ${{ secrets.GHTOKENFORTRIGGERINGPACTDOCSUPDATE }}
           repository: pactflow/docs.pactflow.io
