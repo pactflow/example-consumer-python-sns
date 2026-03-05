@@ -7,6 +7,7 @@ authors = ["Mike Geeves <mike.geeves@bearly-compiling.com>"]
 readme = 'README.md'
 repository = "https://github.com/pactflow/example-consumer-python-sns"
 homepage = "https://github.com/pactflow/example-consumer-python-sns"
+package-mode = false
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
