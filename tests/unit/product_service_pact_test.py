@@ -1,12 +1,11 @@
+import asyncio
 import os
 
 import pytest as pytest
 import json
-from pact.v3.pact import Pact
-from pact import matchers
+from pact import Pact
 from pathlib import Path
 from typing import (
-    TYPE_CHECKING,
     Any,
 )
 from src.product.product_service import receive_product_update
@@ -49,11 +48,10 @@ def verifier(
             "Processing message: ",
             {"input": msg, "processed_message": data, "context": context},
         )
-        handler(data)
+        asyncio.run(handler(data))
     yield _verifier
 
-@pytest.mark.asyncio
-async def test_receive_a_product_update(pact, handler, verifier):
+def test_receive_a_product_update(pact, handler, verifier):
     event = {
         "id": "some-uuid-1234-5678",
         "type": "Product Range",
