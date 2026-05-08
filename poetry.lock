@@ -307,14 +307,14 @@ files = [
 
 [[package]]
 name = "pact-python"
-version = "3.3.1"
+version = "3.4.0"
 description = "Tool for creating and verifying consumer-driven contracts using the Pact framework."
 optional = false
 python-versions = ">=3.10"
 groups = ["dev"]
 files = [
-    {file = "pact_python-3.3.1-py3-none-any.whl", hash = "sha256:e3bbae8398326eaa08521ecdca94fc7d54a5506c442320ca555fbc252aea87b5"},
-    {file = "pact_python-3.3.1.tar.gz", hash = "sha256:c842f073bd143adfb67f11cb2f42b14752907f98e4fc0870bbf6ad9bdd4e9585"},
+    {file = "pact_python-3.4.0-py3-none-any.whl", hash = "sha256:76e8fb55c403c2c87d45052b270535cd88af2cd4b60d7d17ae5714eb9d8a872a"},
+    {file = "pact_python-3.4.0.tar.gz", hash = "sha256:e4a500fa00e1fd586cecf473a74db1e604af5e1be97a312d88eced46c25395c0"},
 ]
 
 [package.dependencies]
@@ -742,4 +742,4 @@ propcache = ">=0.2.1"
 [metadata]
 lock-version = "2.1"
 python-versions = "^3.11"
-content-hash = "a2040be497368189c8598d7d79e50858d58e27df54c9d6f94741337eee1901ed"
+content-hash = "f76e99995292f3abd170850a59ba04e36c102f73ab313285cf72b31735311416"
